@@ -4,6 +4,9 @@
 
 The useContext hook solves for sharing state between components without prop drilling.
 
+>Context also has the unique ability to be scoped to a specific section of the React component tree. A common mistake of context (and generally any "application" state) is to make it globally available anywhere in your application when it's actually only needed to be available in a part of the app (like a single page). Keeping a context value scoped to the area that needs it most has improved performance and maintainability characteristics.
+_~Kent C Dodds_
+
 ```
 import * as React from 'react'
 
