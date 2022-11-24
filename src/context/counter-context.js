@@ -5,7 +5,7 @@ import * as React from "react";
 //it is also the Context Provider wrapper that forms the context component
 const CountContext = React.createContext([
   0,
-  () => console.error("Error: it appears that the context is missing"),
+  () => console.error("Error: useCount must be utilized with CountProvider"),
 ]);
 
 //useCount is the hook that children components use in order to subscribe to the context that is being passed down
@@ -13,8 +13,8 @@ const CountContext = React.createContext([
 function useCount() {
   const context = React.useContext(CountContext);
   try {
-    //This will be true only if there is no default context provided or the deafult context is null
     if (!context) {
+      //This will be true only if there is no default context provided or the deafult context is null
       throw new Error("useCount must be utilized with CountProvider");
     }
     return context;
