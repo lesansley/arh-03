@@ -1,6 +1,8 @@
 import * as React from "react";
 
-//The fallback default context if no providers of the context are found in the parent tree
+//The fallback default context is provided if no providers of the context are found in the parent tree.
+//The context created from createContext is passed in to the useContext hook
+//it is also the Context Provider wrapper that forms the context component
 const CountContext = React.createContext([
   0,
   () => console.error("Error: it appears that the context is missing"),
@@ -11,6 +13,7 @@ const CountContext = React.createContext([
 function useCount() {
   const context = React.useContext(CountContext);
   try {
+    //This will be true only if there is no default context provided or the deafult context is null
     if (!context) {
       throw new Error("useCount must be utilized with CountProvider");
     }
