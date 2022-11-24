@@ -1,19 +1,24 @@
-import * as React from 'react'
+import * as React from "react";
 
-const CountContext = React.createContext()
+const CountContext = React.createContext();
 
 function useCount() {
-  const context = React.useContext(CountContext)
-  if (!context) {
-    throw new Error('useCount must be utilized with CountProvider')
+  const context = React.useContext(CountContext);
+  try {
+    if (!context) {
+      throw new Error("useCount must be utilized with CountProvider");
+    }
+    return context;
+  } catch (err) {
+    console.error(err);
+    return null;
   }
-  return context
 }
 
 function CountProvider(props) {
-  const [count, setCount] = React.useState(0)
-  const value = [count, setCount]
-  return <CountContext.Provider value={value} {...props} />
+  const [count, setCount] = React.useState(0);
+  const value = [count, setCount];
+  return <CountContext.Provider value={value} {...props} />;
 }
 
-export {CountProvider, useCount}
+export { CountProvider, useCount };
