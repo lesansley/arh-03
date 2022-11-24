@@ -1,6 +1,6 @@
-import * as React from "react"
-import {CountDisplay, Counter} from "./screens/counter"
-import {CountProvider} from "./context/counter-context"
+import * as React from "react";
+import { CountDisplay, Counter } from "./screens/counter";
+import { CountProvider } from "./context/counter-context";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <Counter />
       </CountProvider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
